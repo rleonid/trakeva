@@ -1,0 +1,9 @@
+#! /usr/bin/env bash
+
+prefix=$4
+
+oasis setup -setup-update dynamic
+
+ocaml setup.ml -configure --prefix $prefix $3 $1 $2
+
+echo "Configured: SQLITE: $sqlite, POSTGRES: $postgresql, TESTS: $test, PREFIX: $prefix"
