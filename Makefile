@@ -39,4 +39,4 @@ clean:
 distclean: clean
 	ocaml setup.ml -distclean || echo OK ; \
 	    rm -fr gen/ ; \
-	    rm -f setup.ml _tags myocamlbuild.ml src/*/META src/*/*.mldylib src/*/*.mllib _oasis
+	    rm -f setup.ml src/*/META src/*/*.mldylib src/*/*.mllib
