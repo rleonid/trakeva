@@ -1,7 +1,24 @@
 #! /usr/bin/env bash
 
+
+if [ "$1" = "--enable-sqlite" ]; then
+    sqlite="true"
+else
+    sqlite="false"
+fi
+if [ "$2" = "--enable-postgresql" ]; then
+    postgresql="true"
+else
+    postgresql="false"
+fi
+if [ "$3" = "--enable-test" ]; then
+    test="true"
+else
+    test="false"
+fi
+
 oasis setup -setup-update dynamic
 
-ocaml setup.ml -configure --prefix $4 $3 $1 $2
+ocaml setup.ml -configure --prefix $4 $1 $2 $3
 
 echo "Configured: SQLITE: $sqlite, POSTGRES: $postgresql, TESTS: $test, PREFIX: $prefix"
