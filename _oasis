@@ -19,41 +19,41 @@ Flag sqlite
   Default:     false
 
 Library trakeva
-  Path:       src/lib
-  BuildTools: ocamlbuild
+  Path:         src/lib
+  BuildTools:   ocamlbuild
   BuildDepends: nonstd, threads, pvem_lwt_unix
-  Modules:    Trakeva, Trakeva_cache
+  Modules:      Trakeva, Trakeva_cache
 
 Library trakeva_sqlite
-  Build$: flag(sqlite) || flag(test)
-  Install$: flag(sqlite)
-  Path:       src/lib_sqlite
-  BuildTools: ocamlbuild
+  Build$:       flag(sqlite) || flag(test)
+  Install$:     flag(sqlite)
+  Path:         src/lib_sqlite
+  BuildTools:   ocamlbuild
   BuildDepends: trakeva, sqlite3, lwt.preemptive
-  Modules:    Trakeva_sqlite
+  Modules:      Trakeva_sqlite
 
 Library trakeva_postgresql
-  Build$: flag(postgresql)|| flag(test)
-  Install$: flag(postgresql)
-  Path:       src/lib_postgresql
-  BuildTools: ocamlbuild
+  Build$:       flag(postgresql)|| flag(test)
+  Install$:     flag(postgresql)
+  Path:         src/lib_postgresql
+  BuildTools:   ocamlbuild
   BuildDepends: trakeva, postgresql, lwt.preemptive
-  Modules:    Trakeva_postgresql
+  Modules:      Trakeva_postgresql
 
 Library trakeva_of_uri
-  Build$: true
-  Install$: true
-  Path: src/lib_of_uri
-  BuildTools: ocamlbuild
+  Build$:       true
+  Install$:     true
+  Path:         src/lib_of_uri
+  BuildTools:   ocamlbuild
   BuildDepends: trakeva, uri
-  Modules: Assignments, Trakeva_missing, Trakeva_of_uri
+  Modules:      Assignments, Trakeva_missing, Trakeva_of_uri
 
 Executable trakeva_tests
-  Path: src/test/
-  BuildTools: ocamlbuild
+  Path:           src/test/
+  BuildTools:     ocamlbuild
   CompiledObject: best
-  BuildDepends: trakeva, trakeva_sqlite, trakeva_postgresql, trakeva_of_uri, sosa
-  Build$: flag(test)
-  Install: false
-  MainIs:     main.ml
+  BuildDepends:   trakeva, trakeva_sqlite, trakeva_postgresql, trakeva_of_uri, sosa
+  Build$:         flag(test)
+  Install:        false
+  MainIs:         main.ml
 
